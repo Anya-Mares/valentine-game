@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Press_Start_2P } from "next/font/google"
+
+
+const pixel = Press_Start_2P({
+  weight: "400",
+  subsets: ["latin"],
+})
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,13 +29,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
+ return (
+    <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`
+          ${pixel.className}
+          ${geistSans.variable}
+          ${geistMono.variable}
+          bg-black
+          text-gray-200
+          antialiased
+        `}
       >
         {children}
       </body>
     </html>
-  );
+  )
 }

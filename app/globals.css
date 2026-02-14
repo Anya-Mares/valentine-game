@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.heart{
+  position:absolute;
+  top: -10%;
+  animation:fall 6s linear infinite;
+  animation-timing-function:ease-in;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fall{
+  0%{
+    transform: translateY(0) rotate(0deg);
+    opacity:1;
+  }
+  100%{
+    transform: translateY(110vh) rotate(360deg);
+     opacity: 0;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes pulseLove{
+  0%{transform: scale(1);}
+  50%{transform: scale(1.08);}
+  100%{transform: scale(1);}
+}
+
+.pulseLove{
+  animation: pulseLove 1.2s infinite;
+}
+
+@import "tailwindcss";
+
+.heart{
+  position:absolute;
+  top: -10%;
+  animation:fall 6s linear infinite;
+  animation-timing-function:ease-in;
+}
+
+@keyframes fall{
+  0%{
+    transform: translateY(0) rotate(0deg);
+    opacity:1;
+  }
+  100%{
+    transform: translateY(110vh) rotate(360deg);
+     opacity: 0;
+  }
+}
+
+@keyframes pulseLove{
+  0%{transform: scale(1);}
+  50%{transform: scale(1.08);}
+  100%{transform: scale(1);}
+}
+
+.pulseLove{
+  animation: pulseLove 1.2s infinite;
+}
+
+/* ===== CRT EFFECT ===== */
+
+.crt::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+
+  mix-blend-mode: overlay;
+  z-index: 9999;
 }
